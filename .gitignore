@@ -29,3 +29,6 @@
 
 #Project test images
 imagenes/*
+
+#Project executables
+build/*
