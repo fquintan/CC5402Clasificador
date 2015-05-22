@@ -52,21 +52,21 @@ endif
 CC=g++
 BUILD_DIR=build
 
-CPP_FILES=FeatureExtractor.cpp
+CPP_FILES=FeatureExtractor.cpp Utils.cpp
 
-EXTRACTOR_SRC=FeatureExtractor.cpp
+# EXTRACTOR_SRC=
 
 
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
-EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(EXTRACTOR_SRC:.cpp=.o)))
+# EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(EXTRACTOR_SRC:.cpp=.o)))
 
 
-all: $(BUILD_DIR)/extractor
+all:
 
 # all: $(SOURCES) $(EXECUTABLE)    
-$(BUILD_DIR)/extractor: $(OBJ_FILES) $(EXTRACTOR_OBJ)
-	mkdir -p build
-	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
+# $(BUILD_DIR)/extractor: $(OBJ_FILES) $(EXTRACTOR_OBJ)
+# 	mkdir -p build
+# 	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
 
 obj/%.o: src/%.cpp
 	mkdir -p obj
