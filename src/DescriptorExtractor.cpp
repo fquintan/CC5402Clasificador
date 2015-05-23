@@ -18,11 +18,16 @@ int main(int argc, char **argv){
 	std::cout << "Number of descriptors: " << nDescriptors << std::endl;
 	std::cout << "Dimension of descriptors: " << descriptors[0].cols << std::endl;
 
-	ClusterComputer clusterComputer;
+	ClusterComputer clusterComputer(15);
+	cv::Mat labels;
+	cv::Mat centers;
 
-	cv::Mat centers = clusterComputer.compute(descriptors);
+	clusterComputer.compute(descriptors, labels, centers);
 
 	std::cout << "Number of centers: " << centers.rows << std::endl;
 	std::cout << "Dimension of centers: " << centers.cols << std::endl;
+
+	std::cout << "Number of labels: " << labels.rows << std::endl;
+	std::cout << "Dimension of labels: " << labels.cols << std::endl;
 
 }
