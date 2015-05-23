@@ -131,5 +131,19 @@ public:
 	  return r;
 	}
 
-	
+	static std::string vectorToString(std::vector<float> &vector){
+	int size = vector.size();
+	int i;
+
+	std::stringstream ss;
+
+	for(i = 0; i < size - 1; i++){
+	//put arbitrary formatted data into the stream
+		ss << vector[i] << ",";
+	}
+	ss << vector[size - 1];// << std::endl;
+	//convert the stream buffer into a string
+	std::string str = ss.str();
+	return str;
+}	
 };
