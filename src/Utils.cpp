@@ -147,4 +147,24 @@ public:
 		return str;
 	}
 
+	static std::vector<std::string> getAllFilenames(std::vector<std::string> paths){
+		std::vector<std::string> files;
+		std::vector<std::string> aux;
+		
+		for(std::string path : paths){
+			aux = getAllFilenames(path);
+			files.insert(files.end(), aux.begin(), aux.end());
+		}
+		return files;
+	}
+
+	static cv::Mat joinMats(std::vector<cv::Mat> mats){
+		cv::Mat container;
+		int nMats = mats.size();
+		for (int i = 0; i < nMats; ++i){
+			container.push_back(mats[i]);
+		}
+		return container;
+	}
+
 };

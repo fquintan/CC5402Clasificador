@@ -1,4 +1,5 @@
 #include "ClusterComputer.hpp"
+#include "Utils.cpp"
 
 ClusterComputer::ClusterComputer(int k): nClusters(k){}
 ClusterComputer::~ClusterComputer(){}
@@ -6,12 +7,7 @@ ClusterComputer::~ClusterComputer(){}
 
 void ClusterComputer::compute(std::vector<cv::Mat> descriptors, cv::Mat &labels, cv::Mat &centers){
 	// First pack all descriptors into a single matrix
-	cv::Mat descriptorContainer;
-	int nDescriptors = descriptors.size();
-	for (int i = 0; i < nDescriptors; ++i)
-	{
-		descriptorContainer.push_back(descriptors[i]);
-	}
+	cv::Mat descriptorContainer = Utils::joinMats(descriptors);
 
 	// int clusterCount = 15;
 	int attempts = 5;
