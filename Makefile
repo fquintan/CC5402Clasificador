@@ -55,15 +55,21 @@ BUILD_DIR=build
 CPP_FILES=FeatureExtractor.cpp Utils.cpp ClusterComputer.cpp
 
 EXTRACTOR_SRC=DescriptorExtractor.cpp
+LOCAL_EXTRACTOR_SRC=LocalDescriptorExtractor.cpp
 
 
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(EXTRACTOR_SRC:.cpp=.o)))
+LOCAL_EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(LOCAL_EXTRACTOR_SRC:.cpp=.o)))
 
 
 all: obj/*.o $(BUILD_DIR)/extractor
 
 $(BUILD_DIR)/extractor: $(OBJ_FILES) $(EXTRACTOR_OBJ)
+	mkdir -p build
+	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
+
+$(BUILD_DIR)/local_extractor: $(OBJ_FILES) $(LOCAL_EXTRACTOR_OBJ)
 	mkdir -p build
 	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
 
