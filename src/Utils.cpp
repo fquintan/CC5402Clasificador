@@ -158,11 +158,18 @@ public:
 		return files;
 	}
 
-	static cv::Mat joinMats(std::vector<cv::Mat> mats){
+	static cv::Mat joinMats(std::vector<cv::Mat> &mats){
+		// printf("aaaaaaaaa\n");
+		std::cout << "Intentando unir matrices" << std::endl;
+		
 		cv::Mat container;
 		int nMats = mats.size();
-		for (int i = 0; i < nMats; ++i){
-			container.push_back(mats[i]);
+		std::cout << "Uniendo " << nMats << " matrices" << std::endl;
+		std::cout << "Mat[0] tiene " << mats[0].rows << " filas" << std::endl;
+		
+		for (int a = 0; a < nMats; ++a){
+			// std::cout << "Matriz " << a << std::endl;
+			container.push_back(mats[a]);
 		}
 		return container;
 	}
