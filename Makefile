@@ -63,7 +63,7 @@ EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(EXTRACTOR_SRC:.cpp=.o)))
 LOCAL_EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(LOCAL_EXTRACTOR_SRC:.cpp=.o)))
 
 
-all: obj/*.o $(BUILD_DIR)/extractor
+all: obj/*.o $(BUILD_DIR)/extractor $(BUILD_DIR)/local_extractor
 
 $(BUILD_DIR)/extractor: $(OBJ_FILES) $(EXTRACTOR_OBJ)
 	mkdir -p build

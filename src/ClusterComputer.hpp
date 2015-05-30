@@ -6,7 +6,7 @@ class ClusterComputer{
 public:
 	ClusterComputer(int k);
 	~ClusterComputer();
-	void compute(std::vector<cv::Mat> descriptors, cv::Mat &labels, cv::Mat &centers);
+	void compute(cv::Mat &descriptors, cv::Mat &labels, cv::Mat &centers);
 private:
 	int nClusters;
 

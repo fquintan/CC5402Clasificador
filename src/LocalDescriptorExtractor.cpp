@@ -6,19 +6,19 @@
 int main(int argc, char **argv){
 
 	std::vector<std::string> train_image_dirs (3);
-	train_image_dirs[0] = "imagenes/car_train";
-	train_image_dirs[1] = "imagenes/cat_train";
-	train_image_dirs[2] = "imagenes/sheep_train";
+	train_image_dirs[0] = "imagenes2/car_train";
+	train_image_dirs[1] = "imagenes2/cat_train";
+	train_image_dirs[2] = "imagenes2/sheep_train";
 	
 	std::vector<std::string> val_image_dirs (3);
-	val_image_dirs[0] = "imagenes/car_val";
-	val_image_dirs[1] = "imagenes/cat_val";
-	val_image_dirs[2] = "imagenes/sheep_val";
+	val_image_dirs[0] = "imagenes2/car_val";
+	val_image_dirs[1] = "imagenes2/cat_val";
+	val_image_dirs[2] = "imagenes2/sheep_val";
 
 	std::vector<std::string> test_image_dirs (3);
-	test_image_dirs[0] = "imagenes/car_test";
-	test_image_dirs[1] = "imagenes/cat_test";
-	test_image_dirs[2] = "imagenes/sheep_test";
+	test_image_dirs[0] = "imagenes2/car_test";
+	test_image_dirs[1] = "imagenes2/cat_test";
+	test_image_dirs[2] = "imagenes2/sheep_test";
 
 	std::vector<std::string> class_name (3);
 	class_name[0] = "car";
@@ -29,7 +29,7 @@ int main(int argc, char **argv){
 	std::vector<std::string> files;
 	std::vector<cv::Mat> directory_descriptors;
 
-	std::string out_name = "imagenes/descriptores_locales/train_";
+	std::string out_name = "imagenes2/descriptores_locales/train_";
 	std::ofstream outputFile;
 
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv){
 	}
 
 	std::cout << "Calculando descriptores para conjunto de test" << std::endl;
-	out_name = "imagenes/descriptores_locales/test_";
+	out_name = "imagenes2/descriptores_locales/test_";
 
 	for (int i = 0; i < 3; ++i){
 		std::string filename = out_name + class_name[i];
@@ -70,7 +70,7 @@ int main(int argc, char **argv){
 	}
 
 	std::cout << "Calculando descriptores para conjunto de validacion" << std::endl;
-	out_name = "imagenes/descriptores_locales/val_";
+	out_name = "imagenes2/descriptores_locales/val_";
 
 	for (int i = 0; i < 3; ++i){
 		std::string filename = out_name + class_name[i];
