@@ -56,16 +56,21 @@ CPP_FILES=FeatureExtractor.cpp Utils.cpp ClusterComputer.cpp
 
 EXTRACTOR_SRC=DescriptorExtractor.cpp
 LOCAL_EXTRACTOR_SRC=LocalDescriptorExtractor.cpp
+CLASSIFIER_SRC=Classifier.cpp
 
 
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(EXTRACTOR_SRC:.cpp=.o)))
 LOCAL_EXTRACTOR_OBJ := $(addprefix obj/,$(notdir $(LOCAL_EXTRACTOR_SRC:.cpp=.o)))
+CLASSIFIER_OBJ := $(addprefix obj/,$(notdir $(CLASSIFIER_SRC:.cpp=.o)))
 
-
-all: obj/*.o $(BUILD_DIR)/extractor $(BUILD_DIR)/local_extractor
+all: obj/*.o $(BUILD_DIR)/extractor $(BUILD_DIR)/local_extractor $(BUILD_DIR)/classifier
 
 $(BUILD_DIR)/extractor: $(OBJ_FILES) $(EXTRACTOR_OBJ)
+	mkdir -p build
+	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
+
+$(BUILD_DIR)/classifier: $(OBJ_FILES) $(CLASSIFIER_OBJ)
 	mkdir -p build
 	g++ -std=c++0x $(CFLAGS) -o $@ $^ $(LDFLAGS) 
 

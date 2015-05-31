@@ -193,24 +193,4 @@ int main(int argc, char **argv){
 		outputFile.close();
 	}
 
-
-	//////////////////////////////////////////////
-
-/*    // Set up training data
-    float labelsa[4] = {1.0, -1.0, -1.0, -1.0};
-    cv::Mat labelsMat(4, 1, CV_32FC1, labelsa);
-
-    float trainingData[4][2] = { {501, 10}, {255, 10}, {501, 255}, {10, 501} };
-    cv::Mat trainingDataMat(4, 2, CV_32FC1, trainingData);
-
-    // Set up SVM's parameters
-    CvSVMParams params;
-    params.svm_type    = CvSVM::C_SVC;
-    params.kernel_type = CvSVM::LINEAR;
-    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
-
-    // Train the SVM
-    CvSVM SVM;
-    SVM.train(trainingDataMat, labelsMat, cv::Mat(), cv::Mat(), params);*/
-
 }
